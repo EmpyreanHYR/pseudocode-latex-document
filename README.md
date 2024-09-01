@@ -1,2 +1,5 @@
-# pseudocode-latex-document
- latex表示部分算法伪代码的代码的中文版和英文版
+#pseudocode-latex-document
+
+Latex表示部分算法伪代码的代码的中文版和英文版，由询问AI生成，仅供参考。
+
+包括但不限于： 1.K-Mean聚类； 2.多元回归分析； 3.粒子群优化算法； 4.逻辑回归分析； 5.模拟退火算法； 6.投影寻踪法； 7.遗传算法；
