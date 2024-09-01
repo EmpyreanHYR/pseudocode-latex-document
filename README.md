@@ -1,4 +1,4 @@
-#pseudocode-latex-document
+# pseudocode-latex-document
 
 Latex表示部分算法伪代码的代码的中文版和英文版，由询问AI生成，仅供参考。
 
