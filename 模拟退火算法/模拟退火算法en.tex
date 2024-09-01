@@ -1,0 +1,32 @@
+\documentclass{article}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+
+\begin{document}
+	
+	\begin{algorithm}
+		\caption{Simulated Annealing Algorithm}
+		\begin{algorithmic}[1]
+			\State \textbf{Input:} Objective function $f(\cdot)$, initial solution $X_0$, initial temperature $T_0$, final temperature $T_f$, cooling coefficient $\alpha$.
+			\State \textbf{Output:} Optimal solution $X^*$.
+			\State $T \gets T_0$ \Comment{Initialize temperature}
+			\While{$T > T_f$}
+			\For{$i = 1$ \textbf{to} $L$}
+			\State $X' \gets$ Neighborhood($X_0$) \Comment{Generate new solution}
+			\State $\Delta F \gets f(X') - f(X_0)$ \Comment{Calculate change in objective function}
+			\If{$\Delta F < 0$}
+			\State $X_0 \gets X'$ \Comment{Accept new solution}
+			\Else
+			\State Accept $X'$ with probability $\exp(-\Delta F / T)$ \Comment{Probabilistic acceptance}
+			\EndIf
+			\If{$f(X') < f(X^*)$}
+			\State $X^* \gets X'$ \Comment{Update current best solution}
+			\EndIf
+			\EndFor
+			\State $T \gets \alpha \cdot T$ \Comment{Update temperature}
+			\EndWhile
+			\State \Return $X^*$
+		\end{algorithmic}
+	\end{algorithm}
+	
+\end{document}

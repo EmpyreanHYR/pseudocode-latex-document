@@ -1,0 +1,28 @@
+\documentclass{article}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+
+\begin{document}
+	
+	\begin{algorithm}
+		\caption{K-Means Clustering Algorithm}
+		\begin{algorithmic}[1]
+			\Require Dataset $D$, number of clusters $K$, maximum number of iterations $MaxIter$
+			\Ensure Cluster assignments for each data point and cluster centers
+			\State Randomly select $K$ data points as initial cluster centers
+			\For{$iter = 1$ \textbf{to} $MaxIter$}
+			\For{each data point $x$ \textbf{in} $D$}
+			\State Assign $x$ to the nearest cluster center
+			\EndFor
+			\For{each cluster $C$ \textbf{in} $K$}
+			\State Update the center of cluster $C$ to be the mean of all points in the cluster
+			\EndFor
+			\If{cluster centers do not change}
+			\State \textbf{break}
+			\EndIf
+			\EndFor
+			\State \Return Cluster assignments and cluster centers
+		\end{algorithmic}
+	\end{algorithm}
+	
+\end{document}

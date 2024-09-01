@@ -1,0 +1,28 @@
+\documentclass{article}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{amsmath}
+\usepackage[utf8]{inputenc}
+\usepackage[UTF8]{ctex} % 引入中文包
+
+\begin{document}
+	
+	\begin{algorithm}
+		\caption{遗传算法 (Genetic Algorithm)}
+		\begin{algorithmic}[1]
+			\State \textbf{输入:} 目标函数 $f(\mathbf{x})$，种群大小 $P$，交叉率 $c_r$，变异率 $m_r$，最大迭代次数 $MaxIter$。
+			\State \textbf{输出:} 最佳解 $\mathbf{x}_{best}$。
+			\State 初始化种群 $\mathcal{P}$。
+			\State 评估初始种群 $\mathcal{P}$。
+			\For{$iter = 1$ \textbf{to} $MaxIter$}
+			\State 选择操作：从 $\mathcal{P}$ 中选择个体，形成新的种群 $\mathcal{M}$。
+			\State 交叉操作：对 $\mathcal{M}$ 中的个体进行交叉，生成子代 $\mathcal{C}$。
+			\State 变异操作：对 $\mathcal{C}$ 中的个体进行变异，生成新的子代 $\mathcal{N}$。
+			\State 评估 $\mathcal{N}$。
+			\State 选择最佳个体：从 $\mathcal{P} \cup \mathcal{N}$ 中选择 $P$ 个最佳个体，形成新的种群 $\mathcal{P}$。
+			\EndFor
+			\State \Return $\mathbf{x}_{best}$
+		\end{algorithmic}
+	\end{algorithm}
+	
+\end{document}

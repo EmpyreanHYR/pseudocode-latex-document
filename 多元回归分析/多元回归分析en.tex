@@ -1,0 +1,21 @@
+\documentclass{article}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+
+\begin{document}
+	
+	\begin{algorithm}
+		\caption{Multiple Regression Analysis}
+		\begin{algorithmic}[1]
+			\Require Dataset $D$, number of independent variables $n$, dependent variable $y$
+			\Ensure Regression coefficients $\beta_1, \beta_2, \ldots, \beta_n$, intercept $\beta_0$
+			\State Initialize model parameters $\beta_0, \beta_1, \beta_2, \ldots, \beta_n$ to 0
+			\State Construct the design matrix $X$, where each row corresponds to a sample and each column corresponds to an independent variable
+			\State Compute the transpose of matrix $X$, denoted as $X^T$
+			\State Compute the inverse of matrix $X^T X$, denoted as $(X^T X)^{-1}$
+			\State Compute the regression coefficients: $\beta = (X^T X)^{-1} X^T y$
+			\State \Return $\beta_0, \beta_1, \beta_2, \ldots, \beta_n$
+		\end{algorithmic}
+	\end{algorithm}
+	
+\end{document}

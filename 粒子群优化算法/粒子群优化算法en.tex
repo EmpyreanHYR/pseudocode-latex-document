@@ -1,0 +1,34 @@
+\documentclass{article}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{amsmath}
+
+\begin{document}
+	
+	\begin{algorithm}
+		\caption{Particle Swarm Optimization (PSO)}
+		\begin{algorithmic}[1]
+			\State \textbf{Input:} Objective function $f(\mathbf{x})$, number of particles $n$, number of dimensions $d$, maximum iterations $MaxIter$, inertia weight $w$, cognitive coefficient $c_1$, social coefficient $c_2$.
+			\State \textbf{Output:} Best solution $\mathbf{x}_{best}$.
+			\State Initialize particle positions $\mathbf{x}_i$ and velocities $\mathbf{v}_i$ for $i = 1, \ldots, n$.
+			\State Initialize personal best positions $\mathbf{p}_{best,i}$ for $i = 1, \ldots, n$.
+			\State Initialize global best position $\mathbf{g}_{best}$.
+			\For{$iter = 1$ to $MaxIter$}
+			\For{$i = 1$ to $n$}
+			\State Update velocity $\mathbf{v}_i$ using:
+			\State $\mathbf{v}_i \gets w \cdot \mathbf{v}_i + c_1 \cdot \text{rand()} \cdot (\mathbf{p}_{best,i} - \mathbf{x}_i) + c_2 \cdot \text{rand()} \cdot (\mathbf{g}_{best} - \mathbf{x}_i)$
+			\State Update position $\mathbf{x}_i$ using:
+			\State $\mathbf{x}_i \gets \mathbf{x}_i + \mathbf{v}_i$
+			\If{$f(\mathbf{x}_i) < f(\mathbf{p}_{best,i})$}
+			\State Update $\mathbf{p}_{best,i} \gets \mathbf{x}_i$
+			\EndIf
+			\EndFor
+			\If{$f(\mathbf{p}_{best,i}) < f(\mathbf{g}_{best})$ for any $i$}
+			\State Update $\mathbf{g}_{best} \gets \mathbf{p}_{best,i}$
+			\EndIf
+			\EndFor
+			\State \Return $\mathbf{g}_{best}$
+		\end{algorithmic}
+	\end{algorithm}
+	
+\end{document}

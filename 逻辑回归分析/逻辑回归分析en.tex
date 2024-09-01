@@ -1,0 +1,25 @@
+\documentclass{article}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+
+\begin{document}
+	
+	\begin{algorithm}
+		\caption{Logistic Regression Analysis}
+		\begin{algorithmic}[1]
+			\Require Training dataset $\{(x_1, y_1), (x_2, y_2), \ldots, (x_N, y_N)\}$, learning rate $\eta$, number of iterations $MaxIter$
+			\Ensure Logistic regression model parameters $\theta$
+			\State Initialize parameters $\theta$ to small random values
+			\For{$iter = 1$ \textbf{to} $MaxIter$}
+			\For{each sample $i = 1$ \textbf{to} $N$}
+			\State Compute predicted value: $\hat{y}_i = \sigma(\theta^T x_i)$
+			\State Compute gradient: $\nabla_{\theta} = \frac{1}{N} (y_i - \hat{y}_i) x_i$
+			\State Update parameters: $\theta \leftarrow \theta + \eta \nabla_{\theta}$
+			\EndFor
+			\If{convergence or maximum number of iterations reached} \State \textbf{break} \EndIf
+			\EndFor
+			\State \Return $\theta$
+		\end{algorithmic}
+	\end{algorithm}
+	
+\end{document}

@@ -1,0 +1,33 @@
+\documentclass{article}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage[UTF8]{ctex}
+
+\begin{document}
+	
+	\begin{algorithm}
+		\caption{模拟退火算法}
+		\begin{algorithmic}[1]
+			\State \textbf{输入:} 目标函数$f(\cdot)$，初始解$X_0$，初始温度$T_0$，终止温度$T_f$，冷却系数$\alpha$。
+			\State \textbf{输出:} 最优解$X^*$。
+			\State $T \gets T_0$ \Comment{初始化温度}
+			\While{$T > T_f$}
+			\For{$i = 1$ \textbf{to} $L$}
+			\State $X' \gets$ 邻域($X_0$) \Comment{产生新解}
+			\State $\Delta F \gets f(X') - f(X_0)$ \Comment{计算目标函数值的变化}
+			\If{$\Delta F < 0$}
+			\State $X_0 \gets X'$ \Comment{接受新解}
+			\Else
+			\State 以概率$\exp(-\Delta F / T)$接受$X'$ \Comment{概率接受}
+			\EndIf
+			\If{$f(X') < f(X^*)$}
+			\State $X^* \gets X'$ \Comment{更新当前最佳解}
+			\EndIf
+			\EndFor
+			\State $T \gets \alpha \cdot T$ \Comment{更新温度}
+			\EndWhile
+			\State \Return $X^*$
+		\end{algorithmic}
+	\end{algorithm}
+	
+\end{document}

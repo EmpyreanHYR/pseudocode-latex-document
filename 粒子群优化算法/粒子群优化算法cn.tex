@@ -1,0 +1,36 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[UTF8]{ctex} % 引入中文包
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{amsmath}
+
+\begin{document}
+	
+	\begin{algorithm}
+		\caption{粒子群优化算法 (PSO)}
+		\begin{algorithmic}[1]
+			\State \textbf{输入:} 目标函数 $f(\mathbf{x})$，粒子数量 $n$，维度 $d$，最大迭代次数 $MaxIter$，惯性权重 $w$，认知系数 $c_1$，社会系数 $c_2$。
+			\State \textbf{输出:} 最佳解 $\mathbf{x}_{best}$。
+			\State 初始化粒子位置 $\mathbf{x}_i$ 和速度 $\mathbf{v}_i$，对于 $i = 1, \ldots, n$。
+			\State 初始化个体最优位置 $\mathbf{p}_{best,i}$，对于 $i = 1, \ldots, n$。
+			\State 初始化全局最优位置 $\mathbf{g}_{best}$。
+			\For{$iter = 1$ \textbf{to} $MaxIter$}
+			\For{$i = 1$ \textbf{to} $n$}
+			\State 更新速度 $\mathbf{v}_i$ 使用：
+			\State $\mathbf{v}_i \gets w \cdot \mathbf{v}_i + c_1 \cdot \text{rand()} \cdot (\mathbf{p}_{best,i} - \mathbf{x}_i) + c_2 \cdot \text{rand()} \cdot (\mathbf{g}_{best} - \mathbf{x}_i)$
+			\State 更新位置 $\mathbf{x}_i$ 使用：
+			\State $\mathbf{x}_i \gets \mathbf{x}_i + \mathbf{v}_i$
+			\If{$f(\mathbf{x}_i) < f(\mathbf{p}_{best,i})$}
+			\State 更新 $\mathbf{p}_{best,i} \gets \mathbf{x}_i$
+			\EndIf
+			\EndFor
+			\If{存在 $i$ 使得 $f(\mathbf{p}_{best,i}) < f(\mathbf{g}_{best})$}
+			\State 更新 $\mathbf{g}_{best} \gets \mathbf{p}_{best,i}$
+			\EndIf
+			\EndFor
+			\State \Return $\mathbf{g}_{best}$
+		\end{algorithmic}
+	\end{algorithm}
+	
+\end{document}

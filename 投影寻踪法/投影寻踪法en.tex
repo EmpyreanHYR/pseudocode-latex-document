@@ -1,0 +1,22 @@
+\documentclass{article}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+
+\begin{document}
+	
+	\begin{algorithm}
+		\caption{Projection Pursuit}
+		\begin{algorithmic}[1]
+			\Require Dataset $D$, number of projections $T$, learning rate $\eta$, regularization parameter $\lambda$
+			\Ensure Projected dataset $D'$
+			\State Initialize projection matrix $W$ to a $d \times d$ identity matrix
+			\For{$t = 1$ \textbf{to} $T$}
+			\State $W \gets W - \eta \cdot (I - W)$
+			\State $D' \gets D \cdot W$
+			\If{stopping criterion is met} \State \textbf{break} \EndIf
+			\EndFor
+			\State \Return $D'$
+		\end{algorithmic}
+	\end{algorithm}
+	
+\end{document}

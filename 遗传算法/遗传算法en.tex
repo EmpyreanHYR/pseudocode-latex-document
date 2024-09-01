@@ -1,0 +1,26 @@
+\documentclass{article}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{amsmath}
+
+\begin{document}
+	
+	\begin{algorithm}
+		\caption{Genetic Algorithm (GA)}
+		\begin{algorithmic}[1]
+			\State \textbf{Input:} Objective function $f(\mathbf{x})$, population size $P$, crossover rate $c_r$, mutation rate $m_r$, maximum number of iterations $MaxIter$.
+			\State \textbf{Output:} Best solution $\mathbf{x}_{best}$.
+			\State Initialize population $\mathcal{P}$.
+			\State Evaluate initial population $\mathcal{P}$.
+			\For{$iter = 1$ \textbf{to} $MaxIter$}
+			\State Selection operation: Select individuals from $\mathcal{P}$ to form a new population $\mathcal{M}$.
+			\State Crossover operation: Perform crossover on individuals in $\mathcal{M}$ to produce offspring $\mathcal{C}$.
+			\State Mutation operation: Perform mutation on individuals in $\mathcal{C}$ to produce new offspring $\mathcal{N}$.
+			\State Evaluate $\mathcal{N}$.
+			\State Select the best individuals: Choose the best $P$ individuals from $\mathcal{P} \cup \mathcal{N}$ to form a new population $\mathcal{P}$.
+			\EndFor
+			\State \Return $\mathbf{x}_{best}$
+		\end{algorithmic}
+	\end{algorithm}
+	
+\end{document}
