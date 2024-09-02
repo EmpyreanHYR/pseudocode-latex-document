@@ -1,0 +1,24 @@
+\documentclass{article}
+\usepackage[UTF8]{ctex}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+
+\begin{document}
+	
+	\begin{algorithm}
+		\caption{线性回归（最小二乘法）}
+		\begin{algorithmic}[1]
+			\Require 数据集$D$，包含输入$X$和输出$Y$
+			\Ensure 线性回归模型参数$\theta$
+			\State 初始化参数$\theta$为零向量
+			\Repeat
+			\State 计算预测值$\hat{Y} = X\theta$
+			\State 计算误差$E = Y - \hat{Y}$
+			\State 计算梯度$\nabla_{\theta} = -2X^TE$
+			\State 更新参数$\theta \leftarrow \theta + \alpha \nabla_{\theta}$，其中$\alpha$是学习率
+			\Until{收敛或达到最大迭代次数}
+			\State \Return $\theta$
+		\end{algorithmic}
+	\end{algorithm}
+	
+\end{document}

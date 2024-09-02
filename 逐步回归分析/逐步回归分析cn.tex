@@ -1,0 +1,29 @@
+\documentclass{article}
+\usepackage[UTF8]{ctex}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+
+\begin{document}
+	
+	\begin{algorithm}
+		\caption{逐步回归分析}
+		\begin{algorithmic}[1]
+			\Require 数据集$D$，显著性水平$\alpha$，移除变量的显著性水平$\beta$
+			\Ensure 最终模型的变量集合
+			\State 初始化模型，包含所有潜在的预测变量
+			\While{未达到停止条件}
+			\If{存在$p$值小于$\alpha$的变量未被包含在模型中}
+			\State 添加具有最小$p$值的变量到模型中
+			\Else
+			\If{存在$p$值大于$\beta$的变量已包含在模型中}
+			\State 移除具有最大$p$值的变量
+			\Else
+			\State 停止迭代
+			\EndIf
+			\EndIf
+			\EndWhile
+			\State \Return 最终模型的变量集合
+		\end{algorithmic}
+	\end{algorithm}
+	
+\end{document}

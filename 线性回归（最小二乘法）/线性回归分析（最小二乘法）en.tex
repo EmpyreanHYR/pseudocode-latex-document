@@ -1,0 +1,23 @@
+\documentclass{article}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+
+\begin{document}
+	
+	\begin{algorithm}
+		\caption{Linear Regression (Least Squares Method)}
+		\begin{algorithmic}[1]
+			\Require Dataset $D$, containing inputs $X$ and outputs $Y$
+			\Ensure Linear regression model parameters $\theta$
+			\State Initialize parameters $\theta$ to a zero vector
+			\Repeat
+			\State Compute predicted values $\hat{Y} = X\theta$
+			\State Compute errors $E = Y - \hat{Y}$
+			\State Compute gradient $\nabla_{\theta} = -2X^TE$
+			\State Update parameters $\theta \leftarrow \theta + \alpha \nabla_{\theta}$, where $\alpha$ is the learning rate
+			\Until{convergence or maximum number of iterations reached}
+			\State \Return $\theta$
+		\end{algorithmic}
+	\end{algorithm}
+	
+\end{document}

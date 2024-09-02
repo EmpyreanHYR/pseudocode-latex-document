@@ -1,0 +1,24 @@
+\documentclass{article}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+
+\begin{document}
+	
+	\begin{algorithm}
+		\caption{Ridge Regression}
+		\begin{algorithmic}[1]
+			\Require Dataset $D$, regularization parameter $\lambda$
+			\Ensure Ridge regression model parameters $\beta$
+			\State Initialize parameters $\beta$ to 0
+			\State Set learning rate $\alpha$ and regularization parameter $\lambda$
+			\While{not converged}
+			\State Compute predicted values $\hat{y} = X\beta$
+			\State Compute residuals $e = y - \hat{y}$
+			\State Compute gradient $\nabla_{\beta} = -2X^T e + 2\lambda \beta$
+			\State Update parameters $\beta \leftarrow \beta - \alpha \nabla_{\beta}$
+			\EndWhile
+			\State \Return $\beta$
+		\end{algorithmic}
+	\end{algorithm}
+	
+\end{document}

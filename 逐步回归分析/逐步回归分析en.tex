@@ -1,0 +1,28 @@
+\documentclass{article}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+
+\begin{document}
+	
+	\begin{algorithm}
+		\caption{Stepwise Regression Analysis}
+		\begin{algorithmic}[1]
+			\Require Dataset $D$, significance level $\alpha$, removal significance level $\beta$
+			\Ensure Final model's variable set
+			\State Initialize the model with all potential predictor variables
+			\While{not reaching the stopping criterion}
+			\If{There exists a variable with $p$-value less than $\alpha$ not included in the model}
+			\State Add the variable with the smallest $p$-value to the model
+			\Else
+			\If{There exists a variable with $p$-value greater than $\beta$ included in the model}
+			\State Remove the variable with the largest $p$-value
+			\Else
+			\State Stop the iteration
+			\EndIf
+			\EndIf
+			\EndWhile
+			\State \Return The variable set of the final model
+		\end{algorithmic}
+	\end{algorithm}
+	
+\end{document}

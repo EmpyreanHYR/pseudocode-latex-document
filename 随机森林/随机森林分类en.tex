@@ -1,0 +1,26 @@
+\documentclass{article}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+
+\begin{document}
+	
+	\begin{algorithm}
+		\caption{Random Forest Classification Algorithm}
+		\begin{algorithmic}[1]
+			\Require Training dataset $D$, number of trees $n\_trees$, maximum number of features $max\_features$
+			\Ensure Random forest classification model
+			\State Initialize forest as an empty set
+			\For{$i = 1$ \textbf{to} $n\_trees$}
+			\State Obtain training subset $D_i$ from $D$ using bootstrap sampling
+			\State Initialize root node of decision tree $T_i$
+			\While{stopping criterion is not met}
+			\State Select the best splitting feature from the subset of features at the node
+			\State Split the node according to the selected feature and threshold
+			\EndWhile
+			\State Add the constructed decision tree $T_i$ to the forest
+			\EndFor
+			\State \Return Random forest
+		\end{algorithmic}
+	\end{algorithm}
+	
+\end{document}
